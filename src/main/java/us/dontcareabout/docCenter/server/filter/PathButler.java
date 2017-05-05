@@ -40,6 +40,11 @@ public class PathButler implements Filter {
 			return;
 		}
 
+		if ("viz".equals(doc.getType())) {
+			request.getRequestDispatcher("/viz.jsp").forward(request, response);
+			return;
+		}
+
 		//如果都不符合，就回歸預設的處理方式
 		chain.doFilter(request, response);
 	}
