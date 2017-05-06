@@ -16,6 +16,13 @@ public class Document {
 	public Document(String pathInfo) {
 		//開頭會是「/」，所以跳過
 		int firstSeparator = pathInfo.indexOf('/', 1);
+
+		if (firstSeparator == -1) {
+			repo = null;
+			path = pathInfo;
+			return;
+		}
+
 		repo = pathInfo.substring(1, firstSeparator);
 		path = pathInfo.substring(firstSeparator + 1);
 	}
