@@ -42,6 +42,9 @@ div {
 <table width="100%" height="100%">
 	<tr>
 		<td width="30%" >
+			<div>
+			<%@include file="content.jsp" %>
+			</div>
 		</td>
 		<td width="70%">
 			<div id="context"></div>
