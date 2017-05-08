@@ -30,8 +30,8 @@ public class PathButler implements Filter {
 		Document doc = new Document(pathInfo);
 		request.setAttribute("doc", doc);
 
-		if ("flow".equals(doc.getType())) {
-			request.getRequestDispatcher("/flow.jsp").forward(request, response);
+		if ("seq".equals(doc.getType())) {
+			request.getRequestDispatcher("/seq.jsp").forward(request, response);
 			return;
 		}
 
