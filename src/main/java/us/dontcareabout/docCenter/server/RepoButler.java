@@ -15,9 +15,17 @@ public class RepoButler {
 	public static final RepoButler instance = new RepoButler();
 
 	private HashMap<String, Folder> repoMap = new HashMap<>();
-	private final List<String> repoList;
+	private List<String> repoList;
 
 	private RepoButler() {
+		rebuild();
+	}
+
+	public synchronized void rebuild() {
+		repoMap.clear();
+		//以現在的架構來說 repoList 不可能變
+		//但是理論上連 repoList 都應該是可以不靠 restart service 而改變
+		//所以就還是先塞到這裡面來... [遠目]
 		repoList = DocCenterSetting.repoList();
 
 		for (String repo : repoList) {
