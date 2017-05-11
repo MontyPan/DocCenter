@@ -39,6 +39,7 @@ showdown.extension('codehighlight', function() {
 
 var converter = new showdown.Converter({extensions: ['codehighlight']});
 converter.setFlavor('github');
+converter.setOption('simpleLineBreaks', false);
 var container = document.getElementById("context");
 container.classList.add('markdown-body');	//github-markdown-css 需要 container 掛上這個 class
 container.innerHTML = converter.makeHtml(context);
